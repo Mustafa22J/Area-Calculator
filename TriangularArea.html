@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <title>Triangular Area Calculator</title>
+	<style>
+        /* CSS styles */
+        .header {
+            position: relative;
+            background-color: #e9ecef;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .menu {
+            position: absolute;
+            right: 20px;
+            bottom: -20px; 
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .content {
+            padding: 20px;
+            background-color: #fff;
+			text-align: left; 
+        }
+
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #e9ecef;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body ng-app="">
+
+<!-- Header -->
+<div class="header">
+    <h1>Computer Engineering Technology - Web Programming</h1>
+    <div class="menu">
+        <a href="index.html">Index</a> |
+        <a href="AreaCalculator.html">AreaCalculator</a> |
+        <a href="Fibonacci.html">Fibonacci</a> |
+        <a href="MultiplicationTable.html">MultiplicationTable</a>
+    </div>
+</div>
+
+<div class="col-md-12">
+        <h2>This program calculates the area of a triangle.</h2>
+				<h5>Please enter the height and base of the triangle</h5>
+        <label>Height: <input type="number" ng-model="height"></label><br>
+        <label>Base: <input type="number" ng-model="base"></label><br>
+        <hr>
+        <p>Area of the triangle: {{ (height * base) / 2 }}</p>
+    </div>
+
+    <div class="jumbotron text-center" style="margin-bottom:0">
+        <p>Student Number: 040996531</p>
+        <p>First Name: Mustafa</p>
+        <p>Last Name: Jawish</p>
+        <p>Email: jawi0004@algonquinlive.com</p>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script>
+        angular.module('areaApp', [])
+        .controller('areaController', ['$scope', function($scope) {
+            $scope.height = 0;
+            $scope.base = 0;
+        }]);
+    </script>
+</body>
+</html>

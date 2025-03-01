@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <title>Multiplication Table</title>
+    <style>
+        .header {
+            position: relative;
+            background-color: #e9ecef;
+            padding: 20px;
+            text-align: center;
+        }
+        .menu {
+            position: absolute;
+            right: 20px;
+            bottom: -20px;
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .content {
+            padding: 20px;
+            background-color: #fff;
+        }
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #e9ecef;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .list-style {
+            list-style-type: disc;
+        }
+    </style>
+</head>
+<body ng-app="multiplicationApp" ng-controller="MultiplicationController">
+<div class="header">
+    <h1>Computer Engineering Technology - Web Programming</h1>
+    <div class="menu">
+        <a href="index.html">Index</a> |
+        <a href="AreaCalculator.html">AreaCalculator</a> |
+        <a href="Fibonacci.html">Fibonacci</a> |
+        <a href="MultiplicationTable.html">MultiplicationTable</a>
+    </div>
+</div>
+<div class="col-md-12">
+    <h2>This program generates the multiplication table</h2>
+	<h5>Please enter an integer:</h5>
+    <label for="numberInput">Please enter an integer:</label>
+    <input id="numberInput" type="number" ng-model="number" min="1">
+    <div ng-if="number">
+        <h3>Multiplication table of number {{number}}:</h3>
+        <ul class="list-style">
+            <li ng-repeat="i in generateRange(number)">
+                <span ng-repeat="j in generateRange(number)">{{ (i + 1) * (j + 1) }}</span>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="footer">
+    <p>Student Number: 040996531</p>
+    <p>First Name: Mustafa</p>
+    <p>Last Name: Jawish</p>
+    <p>Email: jawi0004@algonquinlive.com</p>
+</div>
+<script>
+    angular.module('multiplicationApp', [])
+        .controller('MultiplicationController', ['$scope', function($scope) {
+            $scope.generateRange = function(num) {
+                return Array.from(Array(num).keys());
+            };
+        }]);
+</script>
+</body>
+</html>

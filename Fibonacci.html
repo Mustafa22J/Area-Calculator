@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <title>Fibonacci Calculator</title>
+    <style>
+        .header {
+            position: relative;
+            background-color: #e9ecef;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .menu {
+            position: absolute;
+            right: 20px;
+            bottom: -20px;
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .content {
+            padding: 20px;
+            background-color: #fff;
+            text-align: left;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #e9ecef;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body ng-app="fibonacciApp" ng-controller="FibonacciController">
+
+<div class="header">
+    <h1>Computer Engineering Technology - Web Programming</h1>
+    <div class="menu">
+        <a href="index.html">Index</a> |
+        <a href="AreaCalculator.html">AreaCalculator</a> |
+        <a href="Fibonacci.html">Fibonacci</a> |
+        <a href="MultiplicationTable.html">MultiplicationTable</a>
+    </div>
+</div>
+
+<!-- Content Section -->
+<div class="col-md-12">
+    <h2>This program calculates the numbers in the Fibonacci series</h2>
+    <h5>Please enter the sequence number of the Fibonacci series</h5>
+    <br/>
+    <label>Sequence Number:
+        <input type="number" ng-model="sequenceNumber" min="1" ng-change="generateFibonacci()">
+    </label>
+    <p>Fibonacci Numbers up to Sequence {{sequenceNumber}}: F<sub>{{sequenceNumber}}</sub>: [{{fibonacciSeries}}]</p>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+    <p>Student Number: 040996531</p>
+    <p>First Name: Mustafa</p>
+    <p>Last Name: Jawish</p>
+    <p>Email: jawi0004@algonquinlive.com</p>
+</div>
+
+<script>
+    var app = angular.module('fibonacciApp', []);
+    app.controller('FibonacciController', function($scope) {
+        $scope.sequenceNumber = 0;
+        $scope.fibonacciSeries = [];
+
+        $scope.generateFibonacci = function() {
+            var n = $scope.sequenceNumber;
+            if (n < 1) {
+                $scope.fibonacciSeries = [];
+                return;
+            }
+            var fibSeries = [0, 1];
+            for (var i = 2; i <= n; i++) {
+                fibSeries.push(fibSeries[i - 1] + fibSeries[i - 2]);
+            }
+            $scope.fibonacciSeries = fibSeries.join(", ");
+        };
+    });
+</script>
+
+</body>
+</html>

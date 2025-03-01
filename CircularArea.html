@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <title>Circular Area Calculator</title>
+    <style>
+      /* CSS styles */
+        .header {
+            position: relative;
+            background-color: #e9ecef;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .menu {
+            position: absolute;
+            right: 20px;
+            bottom: -20px; 
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .content {
+            padding: 20px;
+            background-color: #fff;
+			text-align: left; 
+        }
+
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #e9ecef;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+    <h1>Computer Engineering Technology - Web Programming</h1>
+    <div class="menu">
+        <a href="index.html">Index</a> |
+        <a href="AreaCalculator.html">AreaCalculator</a> |
+        <a href="Fibonacci.html">Fibonacci</a> |
+        <a href="MultiplicationTable.html">MultiplicationTable</a>
+    </div>
+</div>
+
+<!-- Content Section -->
+<div class="col-md-12">
+    <h2>This program calculates the area of a circle.</h2>
+		<h5>Please enter the radius of the circle</h5>
+    <label for="radius">Radius:</label>
+    <input type="number" id="radius" ng-model="radius">
+    <hr/>
+    <p>Area of the circle: {{ (3.14159 * radius * radius).toFixed(2) }}</p>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+    <p>Student Number: 040996531</p>
+    <p>First Name: Mustafa</p>
+    <p>Last Name: Jawish</p>
+    <p>Email: jawi0004@algonquinlive.com</p>
+</div>
+
+</body>
+</html>
